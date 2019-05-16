@@ -12,7 +12,6 @@ LCD 16x2
 #include <Wire.h>
 #include "RTClib.h"
 
-
 //Definitions
 #define LUMIN 11
 LiquidCrystal lcd(5,6,7,8,9,10);
@@ -102,16 +101,16 @@ void loop(){
       break;
     }
 
-    unsigned long currentMillis = millis();            //call current millis
+    unsigned long currentMillis = millis();       //call current millis
 
-    if (currentMillis - prMillis > interval) {  //If interval is reached, scroll page
+    if (currentMillis - prMillis > interval) {    //If interval is reached, scroll page
       prMillis = currentMillis;                   //replace previous millis with current millis as new start point
-      lcd.clear();                                      //lcd clear if page is changed.
-      if (pgCounter <2){                             //Page counter never higher than 3 (total of pages)
-        pgCounter = pgCounter +1;                   //Go to next page
+      lcd.clear();                                //lcd clear if page is changed.
+      if (pgCounter <2){                          //Page counter never higher than 3 (total of pages)
+        pgCounter = pgCounter +1;                 //Go to next page
       }
       else{
-        pgCounter=1;                                  //if counter higher than 3 (last page) return to page 1
+        pgCounter=1;                              //if counter higher than 3 (last page) return to page 1
       }
     }
 
